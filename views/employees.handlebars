@@ -1,0 +1,43 @@
+<h1>Employees:</h1>
+
+<table>
+    <thead> 
+        <th>Id</th>
+        <th>First Name</th> 
+        <th>Last Name</th> 
+        <th>Title</th>
+        <th>Department</th>  
+        <th>Salary</th>  
+        <th>Hourly Rate</th>  
+    </thead> 
+    <tbody> 
+        {{#each employees}}
+        <tr> 
+            <td>{{id}}</td>
+            <td>{{first_name}}</td> 
+            <td>{{last_name}}</td> 
+            <td>{{title}}</td> 
+            <td>{{dept_id_fk}}</td>
+            <td>{{salary}}</td>
+            <td>{{hourly_rate}}</td>
+<!--             <td><button onclick="deleteEmployee({{id}})">Delete</button></td>
+            <td><a href="/employees/{{id}}">Update</a></td> -->
+        </tr> 
+        {{/each}}
+    </tbody> 
+<!-- 
+    <form id="addEmployee" action="/employees" method="post">
+    First Name: <input type="text" name="first_name"><br>
+    Last Name: <input type="text" name="last_name"><br>
+    Title: <input type="text" name="title"><br>
+    Salary: <input type="text" name="salary"><br>
+    Hourly Rate: <input type="text" name="hourly_rate"><br>
+    Department: <select name="dept_id_fk"> 
+        {{#each department}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    <input type="submit" value="Submit">
+    </form> -->
+
+</table> 

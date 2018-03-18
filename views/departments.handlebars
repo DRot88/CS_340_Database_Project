@@ -1,0 +1,24 @@
+<h1>Departments:</h1>
+
+<table>
+    <thead> 
+        <th>Id</th>
+        <th>Name</th> 
+    </thead> 
+    <tbody> 
+        {{#each department}}
+        <tr> 
+            <td>{{dept_id}}</td>
+            <td>{{name}}</td> 
+<!--             <td><button onclick="deleteDepartment({{id}})">Delete</button></td>
+            <td><a href="/deparments/{{id}}">Update</a></td> -->
+        </tr> 
+        {{/each}}
+    </tbody> 
+
+    <form id="addDepartment" action="/departments" method="post">
+    Name: <input type="text" name="name"><br>
+    <input type="submit" value="Submit">
+    </form>
+
+</table> 

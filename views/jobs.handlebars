@@ -1,0 +1,28 @@
+<h1>Jobs:</h1>
+
+<table>
+    <thead> 
+        <th>Id</th>
+        <th>Name</th>
+        <th>OOP</th> 
+    </thead> 
+    <tbody> 
+        {{#each job}}
+        <tr> 
+            <td>{{job_id}}</td>
+            <td>{{name}}</td> 
+            <td>{{oop}}</td>
+            <td><button onclick="deleteJob({{id}})">Delete</button></td>
+            <td><a href="/jobs/{{id}}">Update</a></td>
+        </tr> 
+        {{/each}}
+    </tbody> 
+
+    <form id="addJob" action="/jobs" method="post">
+    Name: <input type="text" name="name"><br>
+    OOP: <input type="text" name="oop"></br>
+</br>
+    <input type="submit" value="Submit">
+    </form>
+
+</table> 

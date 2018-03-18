@@ -1,0 +1,31 @@
+<h1>Scope of Works:</h1>
+
+<table>
+    <thead> 
+        <th>SOW Id</th>
+        <th>Job ID</th>
+        <th>Emp Id</th> 
+        <th>Fee</th>
+    </thead> 
+    <tbody> 
+        {{#each sow}}
+        <tr> 
+            <td>{{sow_id}}</td>
+            <td>{{job_id_fk}}</td> 
+            <td>{{emp_id_fk}}</td>
+            <td>{{fee}}</td>
+            <td><button onclick="deleteSOW({{id}})">Delete</button></td>
+            <td><a href="/sows/{{id}}">Update</a></td>
+        </tr> 
+        {{/each}}
+    </tbody> 
+
+    <form id="addSOW" action="/sows" method="post">
+    SOW Id: <input type="text" name="name"><br>
+    Job Id: <input type="text" name="name"><br>
+    Emp Id: <input type="text" name="name"><br>
+    Fee: <input type="text" name="name"><br>
+    <input type="submit" value="Submit">
+    </form>
+
+</table> 
