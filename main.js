@@ -1,5 +1,6 @@
 var express = require('express');
 var mysql = require('./dbcon.js');
+var path = require('path');
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
@@ -7,19 +8,10 @@ var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/',function(req,res,next){
-  var context = {};
-    mysql.pool.query('SELECT * FROM Employees', function(err, rows, fields){
-      if(err) {
-        next(err);
-        console.log('Failure!');
-        return;
-      }
-		  context.results = JSON.stringify(rows);
-		  res.render('home',context);
-      console.log('Success!');
-		});
+app.get('/',function(req,res,next){ 
+  res.render('home');
 });
 
 

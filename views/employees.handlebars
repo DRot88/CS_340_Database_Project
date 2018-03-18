@@ -20,12 +20,12 @@
             <td>{{dept_id_fk}}</td>
             <td>{{salary}}</td>
             <td>{{hourly_rate}}</td>
-<!--             <td><button onclick="deleteEmployee({{id}})">Delete</button></td>
-            <td><a href="/employees/{{id}}">Update</a></td> -->
+            <td><button onclick="deleteEmployee({{id}})">Delete</button></td>
+            <td><a href="/employees/{{id}}">Update</a></td>
         </tr> 
         {{/each}}
     </tbody> 
-<!-- 
+
     <form id="addEmployee" action="/employees" method="post">
     First Name: <input type="text" name="first_name"><br>
     Last Name: <input type="text" name="last_name"><br>
@@ -33,11 +33,11 @@
     Salary: <input type="text" name="salary"><br>
     Hourly Rate: <input type="text" name="hourly_rate"><br>
     Department: <select name="dept_id_fk"> 
-        {{#each department}}
+        {{#each deparments}}
         <option value="{{id}}">{{name}}</option>
         {{/each}}
     </select><br>
     <input type="submit" value="Submit">
-    </form> -->
+    </form>
 
 </table> 
