@@ -19,7 +19,25 @@ module.exports = function(){
     router.get('/', function(req, res){
         var context = {};
         getDepartments(res, mysql, context);
-    });  
+    }); 
+
+    /* Add Department */
+
+    /* Adds a Department, redirects to the Deparments page after adding */
+
+   router.post('/', function(req, res){
+        // console.log(req.body.name);
+        var sql = "INSERT INTO Departments (name) VALUES (?)";
+        var inserts = [req.body.name];
+        sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }else{
+                res.redirect('/departments');
+            }
+        });
+    });
 
       return router;
 }();

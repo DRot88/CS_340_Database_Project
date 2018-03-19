@@ -21,5 +21,23 @@ module.exports = function(){
         getSows(res, mysql, context);
     });  
 
+    /* Add to SOW */
+
+    /* Adds information regarding SOW, redirects to the sow page after adding */
+
+   router.post('/', function(req, res){
+        console.log(req.body);
+        var sql = "INSERT INTO Scope_of_Works (sow_id, job_id_fk, emp_id_fk, fee) VALUES (?,?,?,?)";
+        var inserts = [req.body.SOW_ID, req.body.SOWJobID, req.body.SOWempID, req.body.fee];
+        sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }else{
+                res.redirect('/sows');
+            }
+        });
+    });    
+
       return router;
 }();

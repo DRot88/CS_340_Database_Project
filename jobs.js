@@ -21,5 +21,23 @@ module.exports = function(){
         getJobs(res, mysql, context);
     });  
 
+    /* Add Job */
+
+    /* Adds a job, redirects to the Jobs page after adding */
+
+   router.post('/', function(req, res){
+        console.log(req.body);
+        var sql = "INSERT INTO Jobs (name, oop) VALUES (?,?)";
+        var inserts = [req.body.name, req.body.oop];
+        sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }else{
+                res.redirect('/jobs');
+            }
+        });
+    });
+
       return router;
 }();

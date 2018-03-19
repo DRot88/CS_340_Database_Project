@@ -4,7 +4,7 @@ module.exports = function(){
     var mysql = require('./dbcon.js');
 
     function getEmployees(res, mysql, context){
-        mysql.pool.query("SELECT * FROM Employees", function(error, results, fields){
+        mysql.pool.query("SELECT id, first_name, last_name, title, dept_id_fk, salary, hourly_rate FROM Employees", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
@@ -39,21 +39,23 @@ module.exports = function(){
     //     }
     // });
 
-    // /* Adds a person, redirects to the people page after adding */
+    /* Add Employee */
 
-    // router.post('/', function(req, res){
-    //     var mysql = req.app.get('mysql');
-    //     var sql = "INSERT INTO bsg_people (fname, lname, homeworld, age) VALUES (?,?,?,?)";
-    //     var inserts = [req.body.fname, req.body.lname, req.body.homeworld, req.body.age];
-    //     sql = mysql.pool.query(sql,inserts,function(error, results, fields){
-    //         if(error){
-    //             res.write(JSON.stringify(error));
-    //             res.end();
-    //         }else{
-    //             res.redirect('/people');
-    //         }
-    //     });
-    // });
+    /* Adds an Employee, redirects to the Employees page after adding */
+
+   router.post('/', function(req, res){
+        console.log(req.body);
+        var sql = "INSERT INTO Employees (first_name, last_name, title, salary, hourly_rate, dept_id_fk) VALUES (?,?,?,?,?,?)";
+        var inserts = [req.body.fname, req.body.lname, req.body.title, req.body.salary, req.body.hourlyRate, req.body.department];
+        sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }else{
+                res.redirect('/employees');
+            }
+        });
+    });
 
     //  The URI that update data is sent to in order to update a person 
 

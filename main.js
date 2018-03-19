@@ -1,6 +1,7 @@
 var express = require('express');
 var mysql = require('./dbcon.js');
 var path = require('path');
+var bodyParser = require('body-parser')
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
@@ -9,6 +10,8 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/',function(req,res,next){ 
   res.render('home');
