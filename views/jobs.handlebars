@@ -18,11 +18,21 @@
         {{/each}}
     </tbody> 
 
-    <form id="addJob" action="/jobs" method="post">
-    Name: <input type="text" name="name"><br>
-    OOP: <input type="text" name="oop"></br>
-</br>
-    <input type="submit" value="Submit">
+    <form id="addJobs" action="/jobs" method="post">
+        <h3>Add Jobs</h3>
+        <label>
+            <span>Name: </span>
+            <input id="name" type="text" name="name" placeholder="Job Name" />
+        </label>
+        <br/><br/>
+        <label>
+            <span>OOP: </span>
+            <input id="oop" type="text" name="oop" placeholder="OOP Amount" />
+        </label>        
+        </br></br>
+        <label> 
+            <input type="button" class="button" value="Submit" /> 
+        </label>  
     </form>
 
 </table> 

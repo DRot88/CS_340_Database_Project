@@ -16,9 +16,16 @@
         {{/each}}
     </tbody> 
 
-    <form id="addDepartment" action="/departments" method="post">
-    Name: <input type="text" name="name"><br>
-    <input type="submit" value="Submit">
+    <form class="elegant-aero" id="addDepartment" action="/departments" method="post">
+        <h3>Add Department</h3>
+        <label>
+            <span>Name: </span>
+            <input id="name" type="text" name="name" placeholder="Department Name" />
+        </label>
+        </br></br>
+        <label>
+            <input type="button" class="button" value="Submit" /> 
+        </label>  
     </form>
 
 </table> 

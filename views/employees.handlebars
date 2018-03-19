@@ -26,18 +26,41 @@
         {{/each}}
     </tbody> 
 
-    <form id="addEmployee" action="/employees" method="post">
-    First Name: <input type="text" name="first_name"><br>
-    Last Name: <input type="text" name="last_name"><br>
-    Title: <input type="text" name="title"><br>
-    Salary: <input type="text" name="salary"><br>
-    Hourly Rate: <input type="text" name="hourly_rate"><br>
-    Department: <select name="dept_id_fk"> 
-        {{#each deparments}}
-        <option value="{{id}}">{{name}}</option>
-        {{/each}}
-    </select><br>
-    <input type="submit" value="Submit">
-    </form>
+    <form id="addSOW" action="/sows" method="post">
+        <h3>Add Employee</h3>
+        <label>
+            <span>First Name: </span>
+            <input id="fname" type="text" name="fname" placeholder="Enter First Name" />
+        </br></br>
+        </label>
+        <label>
+            <span>Last Name: </span>
+            <input id="lname" type="text" name="lname" placeholder="Enter Last Name" />
+        </label>
+        </br></br>
+        <label>
+            <span>Title: </span>
+            <input id="title" type="text" name="title" placeholder="Enter Title" />
+        </label>
+        </br></br>
+        <label>
+            <span>Salary: </span>
+            <input id="salary" type="text" name="salary" placeholder="Enter Salary" />
+        </label>   
+        </br></br>
+        <label>
+            <span>Hourly Rate: </span>
+            <input id="salary" type="text" name="salary" placeholder="Enter Salary" />
+        </label>   
+        </br></br>  
+        <label>
+            <span>Department: </span>
+            <input id="department" type="text" name="department" placeholder="Enter Department ID" />
+        </label>   
+        </br></br>                                     
+        <label>
+            <input type="submit" class="button" value="Submit" /> 
+        </label>  
+    </form>        
 
 </table> 
